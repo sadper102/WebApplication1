@@ -1,0 +1,1 @@
+Edit FILE Model1.edmx with notepad Schema="categories" to Schema="" when update model

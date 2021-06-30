@@ -10,13 +10,14 @@
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="int" Nullable="false" />
-          <Property Name="name" Type="varchar" MaxLength="45" Nullable="false" />
-          <Property Name="label" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="label" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="isLeaf" Type="bit" Nullable="false" />
           <Property Name="firstLevelCatId" Type="int" Nullable="false" />
           <Property Name="lscSetId" Type="int" />
           <Property Name="variationCat" Type="bit" Nullable="false" />
           <Property Name="active" Type="bit" Nullable="false" />
+          <Property Name="Parentcatid" Type="int" Nullable="false" />
         </EntityType>
         <EntityContainer Name="categoriesModelStoreContainer">
           <EntitySet Name="ctable" EntityType="Self.ctable" Schema="" store:Type="Tables" />
@@ -33,13 +34,14 @@
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" />
-          <Property Name="name" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
-          <Property Name="label" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="label" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="isLeaf" Type="Boolean" Nullable="false" />
           <Property Name="firstLevelCatId" Type="Int32" Nullable="false" />
           <Property Name="lscSetId" Type="Int32" />
           <Property Name="variationCat" Type="Boolean" Nullable="false" />
           <Property Name="active" Type="Boolean" Nullable="false" />
+          <Property Name="Parentcatid" Type="Int32" Nullable="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -50,6 +52,7 @@
           <EntitySetMapping Name="ctables">
             <EntityTypeMapping TypeName="categoriesModel.ctable">
               <MappingFragment StoreEntitySet="ctable">
+                <ScalarProperty Name="Parentcatid" ColumnName="Parentcatid" />
                 <ScalarProperty Name="active" ColumnName="active" />
                 <ScalarProperty Name="variationCat" ColumnName="variationCat" />
                 <ScalarProperty Name="lscSetId" ColumnName="lscSetId" />
