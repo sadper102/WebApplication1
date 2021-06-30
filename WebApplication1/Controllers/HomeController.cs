@@ -63,6 +63,7 @@ namespace WebApplication1.Controllers
             catch(Exception err)
             {
                 Console.WriteLine(err);
+                TempData["Message"] = err.Message;
             }
             return RedirectToAction("/Category");
         }
@@ -108,28 +109,18 @@ namespace WebApplication1.Controllers
             }
         }
         public ActionResult Category() {
-            categoriesEntities db = new categoriesEntities();
-            List<ctable> lable = db.ctables.Where(x => x.id == x.firstLevelCatId).ToList();
+            try
+            {
 
-            return View(lable);
+                categoriesEntities db = new categoriesEntities();
+                List<ctable> lable = db.ctables.Where(x => x.id == x.firstLevelCatId).ToList();
+                return View(lable);
+            }
+            catch(Exception err) {
+                TempData["Message"] = err.Message;
+                return View();
+            } 
         }
-        public ActionResult Index()
-        {
-            return View();
-        }
-
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
-        }
+        
     }
 }
